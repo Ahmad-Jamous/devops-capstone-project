@@ -62,6 +62,7 @@ def create_accounts():
 ######################################################################
 
 # ... place you code here to LIST accounts ...
+
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """
@@ -81,7 +82,8 @@ def list_accounts():
 ######################################################################
 
 # ... place you code here to READ an account ...
-@app.route("/accounts/<int:account_id>", methods =["GET"])
+
+@app.route("/accounts/<int:account_id>", methods=["GET"])
 def read_account(account_id):
     """
     Reads an Account
@@ -100,6 +102,7 @@ def read_account(account_id):
     ######################################################################
     # UPDATE AN EXISTING ACCOUNT
     ######################################################################
+
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
 def update_accounts(account_id):
     """
@@ -107,7 +110,6 @@ def update_accounts(account_id):
     This endpoint will update an Account based on the posted data
     """
     app.logger.info("Request to update an Account with id: %s", account_id)
-
     account = Account.find(account_id)
     if not account:
             abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] could not be found.")
